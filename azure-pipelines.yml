@@ -14,8 +14,6 @@ steps:
   inputs:
     version: '2.2.300'
 
-- script: dotnet restore
-
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
