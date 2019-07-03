@@ -2,11 +2,11 @@
 
 namespace BorwellSoftwareChallenge
 {
-    class Program
+    class RoomCalculator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Initial Project to setup on GitHub!");
+            
         }
     }
 }
