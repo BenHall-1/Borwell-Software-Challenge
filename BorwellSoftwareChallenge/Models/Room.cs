@@ -55,11 +55,43 @@ namespace BorwellSoftwareChallenge.Models
         /// </summary>
         public HashSet<ObjectModel> Windows { get; set; }
 
+        public double Area
+        {
+            get
+            {
+                double area = 0.0;
+                foreach (ObjectModel walls in Walls)
+                {
+                    area += walls.Height * walls.Width;
+                }
+                return area;
+            }
+        }
+        public double AreaWithoutDoorsAndWindows
+        {
+            get
+            {
+                double area = 0.0;
+                foreach (ObjectModel walls in Walls)
+                {
+                    area += walls.Height * walls.Width;
+                }
+                foreach (ObjectModel doors in Doors)
+                {
+                    area -= doors.Height * doors.Width;
+                }
+                foreach (ObjectModel windows in Windows)
+                {
+                    area -= windows.Height * windows.Width;
+                }
+                return area;
+            }
+        }
         public double PaintNeeded
         {
             get
             {
-                return 0;
+                return AreaWithoutDoorsAndWindows / 10;
             }
         }
     }

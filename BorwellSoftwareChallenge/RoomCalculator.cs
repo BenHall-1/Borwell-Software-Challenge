@@ -18,13 +18,18 @@ namespace BorwellSoftwareChallenge
 
             var room = new Room(doors, walls, windows);
 
+            Console.WriteLine($"Area (Including Doors and Windows): {room.Area}m²");
+            Console.WriteLine($"Area (Excluding Doors and Windows): {room.AreaWithoutDoorsAndWindows}m²");
+            Console.WriteLine($"Litres of paint needed: {room.PaintNeeded}l");
+
+            Console.ReadKey();
         }
 
         /// <summary>
         /// Sets up all of the <see cref="Door"/>s for the <see cref="Room"/>.
         /// </summary>
         /// <returns>a <see cref="HashSet{Door}"/> of <see cref="Door"/>s.</returns>
-        public static HashSet<ObjectModel> Setup(String type)
+        public static HashSet<ObjectModel> Setup(string type)
         {
             HashSet<ObjectModel> models = new HashSet<ObjectModel>();
             var count = 0;
@@ -61,6 +66,8 @@ namespace BorwellSoftwareChallenge
                         var width = int.Parse(Console.ReadLine());
 
                         models.Add(new ObjectModel(height, width));
+
+                        isValid = true;
                     }
                     catch (FormatException ignored)
                     {
