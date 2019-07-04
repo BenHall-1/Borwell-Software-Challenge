@@ -1,6 +1,7 @@
 ﻿using BorwellSoftwareChallenge.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BorwellSoftwareChallenge.Models
@@ -60,10 +61,8 @@ namespace BorwellSoftwareChallenge.Models
             get
             {
                 double area = 0.0;
-                foreach (ObjectModel walls in Walls)
-                {
-                    area += walls.Height * walls.Width;
-                }
+                Walls.ToList().ForEach((wall) => area += wall.Height * wall.Width);
+
                 return area;
             }
         }
@@ -71,19 +70,10 @@ namespace BorwellSoftwareChallenge.Models
         {
             get
             {
-                double area = 0.0;
-                foreach (ObjectModel walls in Walls)
-                {
-                    area += walls.Height * walls.Width;
-                }
-                foreach (ObjectModel doors in Doors)
-                {
-                    area -= doors.Height * doors.Width;
-                }
-                foreach (ObjectModel windows in Windows)
-                {
-                    area -= windows.Height * windows.Width;
-                }
+                double area = Area;
+                Doors.ToList().ForEach((door) => area -= door.Height * door.Width);
+                Windows.ToList().ForEach((window) => area -= window.Height * window.Width);
+
                 return area;
             }
         }
