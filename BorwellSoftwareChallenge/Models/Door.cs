@@ -3,14 +3,14 @@ using System;
 
 namespace BorwellSoftwareChallenge.Models
 {
-    public class Wall
+    public class Door
     {
         /// <summary>
-        /// Initializes an instance of the <see cref="Wall"/> class.
+        /// Initializes an instance of the <see cref="Door"/> class.
         /// </summary>
-        /// <param name="height">The height of the <see cref="Wall"/>.</param>
-        /// <param name="width">The width of the <see cref="Wall"/>.</param>
-        public Wall(double height, double width)
+        /// <param name="height">The height of the <see cref="Door"/>.</param>
+        /// <param name="width">The width of the <see cref="Door"/>.</param>
+        public Door(double height, double width)
         {
             if (!height.IsValid() || !width.IsValid())
             {
@@ -21,12 +21,12 @@ namespace BorwellSoftwareChallenge.Models
         }
 
         /// <summary>
-        /// Gets or sets the <see cref="Height"/> of the <see cref="Wall"/>.
+        /// Gets or sets the <see cref="Height"/> of the <see cref="Door"/>.
         /// </summary>
         public double Height { get; set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="Width"/> of the <see cref="Wall"/>.
+        /// Gets or sets the <see cref="Width"/> of the <see cref="Door"/>.
         /// </summary>
         public double Width { get; set; }
 
