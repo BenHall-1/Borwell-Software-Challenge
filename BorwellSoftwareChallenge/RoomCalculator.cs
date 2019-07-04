@@ -1,38 +1,16 @@
-﻿using System;
+﻿using BorwellSoftwareChallenge.Extensions;
+using System;
 
 namespace BorwellSoftwareChallenge
 {
-    class RoomCalculator
+    public class RoomCalculator
     {
+        /// <summary>
+        /// Calculates the amount of paint needed for the room
+        /// </summary>
         static void Main(string[] args)
-        { 
-            int wallCount;
-            int doorCount;
-            int windowCount;
-
-            Console.WriteLine("How many walls will there be?");
-            try
-            {
-                wallCount = int.Parse(Console.ReadLine());
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine($"You have entered an incorrectly formatted number (Error: {e.Message})");
-            }
-
-            Console.WriteLine("How many walls will there be?");
-            try
-            {
-                wallCount = int.Parse(Console.ReadLine());
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine($"You have entered an incorrectly formatted number (Error: {e.Message})");
-            }
-
-            // Stops the program from instantly closing
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
+        {
+            Console.WriteLine("How many walls do you have:");
         }
     }
 }
