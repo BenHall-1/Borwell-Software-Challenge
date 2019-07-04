@@ -12,20 +12,21 @@ namespace BorwellSoftwareChallengeTests
         [TestMethod]
         public void DoorCountCheck()
         {
-            Wall wall = new Wall(10, 10);
-            Wall wall2 = new Wall(10, 10);
-            Wall wall3 = new Wall(10, 10);
-            Door door = new Door(2, 1);
-            Window window = new Window(1, 1);
+            ObjectModel wallOne = new ObjectModel(10, 10);
+            ObjectModel wallTwo = new ObjectModel(10, 10);
+            ObjectModel wallThree = new ObjectModel(10, 10);
 
-            HashSet<Door> doors = new HashSet<Door>();
-            HashSet<Wall> walls = new HashSet<Wall>();
-            HashSet<Window> windows = new HashSet<Window>();
+            ObjectModel windowOne = new ObjectModel(1, 1);
 
-            walls.Add(wall);
-            walls.Add(wall2);
-            walls.Add(wall3);
-            windows.Add(window);
+            HashSet<ObjectModel> doors = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> walls = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> windows = new HashSet<ObjectModel>();
+
+            walls.Add(wallOne);
+            walls.Add(wallTwo);
+            walls.Add(wallThree);
+
+            windows.Add(windowOne);
 
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Room(doors, walls, windows));
         }
@@ -33,17 +34,17 @@ namespace BorwellSoftwareChallengeTests
         [TestMethod]
         public void WallCountCheck()
         {
-            Wall wall = new Wall(10, 10);
-            Door door = new Door(2, 1);
-            Window window = new Window(1, 1);
+            ObjectModel wallOne = new ObjectModel(10, 10);
 
-            HashSet<Door> doors = new HashSet<Door>();
-            HashSet<Wall> walls = new HashSet<Wall>();
-            HashSet<Window> windows = new HashSet<Window>();
+            ObjectModel windowOne = new ObjectModel(1, 1);
 
-            doors.Add(door);
-            walls.Add(wall);
-            windows.Add(window);
+            HashSet<ObjectModel> doors = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> walls = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> windows = new HashSet<ObjectModel>();
+
+            walls.Add(wallOne);
+
+            windows.Add(windowOne);
 
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Room(doors, walls, windows));
         }
@@ -51,21 +52,25 @@ namespace BorwellSoftwareChallengeTests
         [TestMethod]
         public void DoorCountSuccessfulCheck()
         {
-            Wall wall = new Wall(10, 10);
-            Wall wall2 = new Wall(10, 10);
-            Wall wall3 = new Wall(10, 10);
-            Door door = new Door(2, 1);
-            Window window = new Window(1, 1);
+            ObjectModel doorOne = new ObjectModel(2, 1);
 
-            HashSet<Door> doors = new HashSet<Door>();
-            HashSet<Wall> walls = new HashSet<Wall>();
-            HashSet<Window> windows = new HashSet<Window>();
+            ObjectModel wallOne = new ObjectModel(10, 10);
+            ObjectModel wallTwo = new ObjectModel(10, 10);
+            ObjectModel wallThree = new ObjectModel(10, 10);
 
-            doors.Add(door);
-            walls.Add(wall);
-            walls.Add(wall2);
-            walls.Add(wall3);
-            windows.Add(window);
+            ObjectModel windowOne = new ObjectModel(1, 1);
+
+            HashSet<ObjectModel> doors = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> walls = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> windows = new HashSet<ObjectModel>();
+
+            doors.Add(doorOne);
+
+            walls.Add(wallOne);
+            walls.Add(wallTwo);
+            walls.Add(wallThree);
+
+            windows.Add(windowOne);
 
             try
             {
@@ -80,21 +85,25 @@ namespace BorwellSoftwareChallengeTests
         [TestMethod]
         public void WallCountSuccessfulCheck()
         {
-            Wall wall = new Wall(10, 10);
-            Wall wall2 = new Wall(10, 10);
-            Wall wall3 = new Wall(10, 10);
-            Door door = new Door(2, 1);
-            Window window = new Window(1, 1);
+            ObjectModel doorOne = new ObjectModel(2, 1);
 
-            HashSet<Door> doors = new HashSet<Door>();
-            HashSet<Wall> walls = new HashSet<Wall>();
-            HashSet<Window> windows = new HashSet<Window>();
+            ObjectModel wallOne = new ObjectModel(10, 10);
+            ObjectModel wallTwo = new ObjectModel(10, 10);
+            ObjectModel wallThree = new ObjectModel(10, 10);
 
-            doors.Add(door);
-            walls.Add(wall);
-            walls.Add(wall2);
-            walls.Add(wall3);
-            windows.Add(window);
+            ObjectModel windowOne = new ObjectModel(1, 1);
+
+            HashSet<ObjectModel> doors = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> walls = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> windows = new HashSet<ObjectModel>();
+
+            doors.Add(doorOne);
+
+            walls.Add(wallOne);
+            walls.Add(wallTwo);
+            walls.Add(wallThree);
+
+            windows.Add(windowOne);
             try
             {
                 Room room = new Room(doors, walls, windows);
@@ -108,27 +117,31 @@ namespace BorwellSoftwareChallengeTests
         [TestMethod]
         public void MoreDoorsThanWallsCheck()
         {
-            Wall wall = new Wall(10, 10);
-            Wall wall2 = new Wall(10, 10);
-            Wall wall3 = new Wall(10, 10);
-            Door door = new Door(2, 1);
-            Door door2 = new Door(2, 1);
-            Door door3 = new Door(2, 1);
-            Door door4 = new Door(2, 1);
-            Window window = new Window(1, 1);
+            ObjectModel doorOne = new ObjectModel(2, 1);
+            ObjectModel doorTwo = new ObjectModel(2, 1);
+            ObjectModel doorThree = new ObjectModel(2, 1);
+            ObjectModel doorFour = new ObjectModel(2, 1);
 
-            HashSet<Door> doors = new HashSet<Door>();
-            HashSet<Wall> walls = new HashSet<Wall>();
-            HashSet<Window> windows = new HashSet<Window>();
+            ObjectModel wallOne = new ObjectModel(10, 10);
+            ObjectModel wallTwo = new ObjectModel(10, 10);
+            ObjectModel wallThree = new ObjectModel(10, 10);
 
-            doors.Add(door);
-            doors.Add(door2);
-            doors.Add(door3);
-            doors.Add(door4);
-            walls.Add(wall);
-            walls.Add(wall2);
-            walls.Add(wall3);
-            windows.Add(window);
+            ObjectModel windowOne = new ObjectModel(1, 1);
+
+            HashSet<ObjectModel> doors = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> walls = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> windows = new HashSet<ObjectModel>();
+
+            doors.Add(doorOne);
+            doors.Add(doorTwo);
+            doors.Add(doorThree);
+            doors.Add(doorFour);
+
+            walls.Add(wallOne);
+            walls.Add(wallTwo);
+            walls.Add(wallThree);
+
+            windows.Add(windowOne);
 
             Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Room(doors, walls, windows));
         }
@@ -136,21 +149,25 @@ namespace BorwellSoftwareChallengeTests
         [TestMethod]
         public void MoreDoorsThanWallsSuccessfulCheck()
         {
-            Wall wall = new Wall(10, 10);
-            Wall wall2 = new Wall(10, 10);
-            Wall wall3 = new Wall(10, 10);
-            Door door = new Door(2, 1);
-            Window window = new Window(1, 1);
+            ObjectModel doorOne = new ObjectModel(2, 1);
 
-            HashSet<Door> doors = new HashSet<Door>();
-            HashSet<Wall> walls = new HashSet<Wall>();
-            HashSet<Window> windows = new HashSet<Window>();
+            ObjectModel wallOne = new ObjectModel(10, 10);
+            ObjectModel wallTwo = new ObjectModel(10, 10);
+            ObjectModel wallThree = new ObjectModel(10, 10);
 
-            doors.Add(door);
-            walls.Add(wall);
-            walls.Add(wall2);
-            walls.Add(wall3);
-            windows.Add(window);
+            ObjectModel windowOne = new ObjectModel(1, 1);
+
+            HashSet<ObjectModel> doors = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> walls = new HashSet<ObjectModel>();
+            HashSet<ObjectModel> windows = new HashSet<ObjectModel>();
+
+            doors.Add(doorOne);
+
+            walls.Add(wallOne);
+            walls.Add(wallTwo);
+            walls.Add(wallThree);
+
+            windows.Add(windowOne);
 
             try
             {

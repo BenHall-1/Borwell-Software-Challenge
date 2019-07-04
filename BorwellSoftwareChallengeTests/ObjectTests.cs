@@ -5,12 +5,12 @@ using System;
 namespace BorwellSoftwareChallengeTests
 {
     [TestClass]
-    public class DoorTests
+    public class ObjectTests
     {
         [TestMethod]
         public void HeightCheck()
         {
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Door(-10, 10));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new ObjectModel(-10, 10));
         }
 
         [TestMethod]
@@ -18,7 +18,7 @@ namespace BorwellSoftwareChallengeTests
         {
             try
             {
-                Door door = new Door(10, 10);
+                ObjectModel model = new ObjectModel(10, 10);
             }
             catch (Exception e)
             {
@@ -29,7 +29,7 @@ namespace BorwellSoftwareChallengeTests
         [TestMethod]
         public void WidthCheck()
         {
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Door(10, -10));
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new ObjectModel(10, -10));
         }
 
         [TestMethod]
@@ -37,7 +37,7 @@ namespace BorwellSoftwareChallengeTests
         {
             try
             {
-                Door door = new Door(10, 10);
+                ObjectModel model = new ObjectModel(10, 10);
             }
             catch (Exception e)
             {

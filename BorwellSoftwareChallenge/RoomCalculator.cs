@@ -1,5 +1,7 @@
 ﻿using BorwellSoftwareChallenge.Extensions;
+using BorwellSoftwareChallenge.Models;
 using System;
+using System.Collections.Generic;
 
 namespace BorwellSoftwareChallenge
 {
@@ -10,7 +12,65 @@ namespace BorwellSoftwareChallenge
         /// </summary>
         static void Main(string[] args)
         {
-            Console.WriteLine("How many walls do you have:");
+            var walls = Setup("wall");
+            var doors = Setup("door");
+            var windows = Setup("window");
+
+            var room = new Room(doors, walls, windows);
+
+        }
+
+        /// <summary>
+        /// Sets up all of the <see cref="Door"/>s for the <see cref="Room"/>.
+        /// </summary>
+        /// <returns>a <see cref="HashSet{Door}"/> of <see cref="Door"/>s.</returns>
+        public static HashSet<ObjectModel> Setup(String type)
+        {
+            HashSet<ObjectModel> models = new HashSet<ObjectModel>();
+            var count = 0;
+            var isValid = false;
+
+            Console.WriteLine($"How many {type}s are there?");
+
+            while (isValid == false)
+            {
+                try
+                {
+                    count = int.Parse(Console.ReadLine());
+                    isValid = true;
+                }
+                catch (FormatException ignored)
+                {
+                    Console.WriteLine($"You did not enter a number ({ignored.Message})");
+
+                }
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                isValid = false;
+
+                while (isValid == false)
+                {
+                    try
+                    {
+                        Console.WriteLine($"What is the height of {type} #{i + 1}.");
+                        var height = int.Parse(Console.ReadLine());
+
+                        Console.WriteLine($"What is the width of {type} #{i + 1}.");
+                        var width = int.Parse(Console.ReadLine());
+
+                        models.Add(new ObjectModel(height, width));
+                    }
+                    catch (FormatException ignored)
+                    {
+                        Console.WriteLine($"You did not enter a number ({ignored.Message})");
+
+                    }
+                }
+            }
+
+            return models;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace BorwellSoftwareChallenge.Models
     /// </summary>
     public class Room
     {
-        public Room(HashSet<Door> doors, HashSet<Wall> walls, HashSet<Window> windows)
+        public Room(HashSet<ObjectModel> doors, HashSet<ObjectModel> walls, HashSet<ObjectModel> windows)
         {
             if (!doors.Count.BiggerThanOrEqualTo(1))
             {
@@ -36,21 +36,31 @@ namespace BorwellSoftwareChallenge.Models
             {
                 Walls = walls;
             }
+
+            Windows = windows;
         }
 
         /// <summary>
         /// The list of <see cref="Door"/>s that are going to be taken into account when calculating the paint needed.
         /// </summary>
-        public HashSet<Door> Doors { get; set; }
+        public HashSet<ObjectModel> Doors { get; set; }
 
         /// <summary>
         /// The list of <see cref="Wall"/>s that are going to be taken into account when calculating the paint needed.
         /// </summary>
-        public HashSet<Wall> Walls { get; set; }
+        public HashSet<ObjectModel> Walls { get; set; }
 
         /// <summary>
         /// The list of <see cref="Window"/>s that are going to be taken into account when calculating the paint needed.
         /// </summary>
-        public HashSet<Window> Windows { get; set; }
+        public HashSet<ObjectModel> Windows { get; set; }
+
+        public double PaintNeeded
+        {
+            get
+            {
+                return 0;
+            }
+        }
     }
 }
