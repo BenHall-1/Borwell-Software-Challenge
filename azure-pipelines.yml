@@ -11,6 +11,7 @@ pool:
   
 steps:
 - task: DotNetCoreInstaller@0
+  displayName: Installing DotNetCore 2.2.300
   inputs:
     version: '2.2.300'
 
@@ -20,9 +21,3 @@ steps:
     command: build
     projects: '**/*.csproj'
     arguments: '--configuration Release'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: test
-    projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
