@@ -3,6 +3,9 @@ using System;
 
 namespace BorwellSoftwareChallenge.Models
 {
+    /// <summary>
+    /// The windows which will be attached to the room.
+    /// </summary>
     public class Window
     {
         /// <summary>

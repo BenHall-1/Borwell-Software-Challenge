@@ -3,6 +3,9 @@ using System;
 
 namespace BorwellSoftwareChallenge.Models
 {
+    /// <summary>
+    /// The walls which will make up the room.
+    /// </summary>
     public class Wall
     {
         /// <summary>
@@ -29,10 +32,5 @@ namespace BorwellSoftwareChallenge.Models
         /// Gets or sets the <see cref="Width"/> of the <see cref="Wall"/>.
         /// </summary>
         public double Width { get; set; }
-
-        private bool ValidationPassed(double value)
-        {
-            return !(value <= 0.0);
-        }
     }
 }
